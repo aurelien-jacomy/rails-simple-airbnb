@@ -1,7 +1,22 @@
 .flat-container {
 	display: flex;
+	position: relative;
+	top: -60px;
 }
 
 .details-container {
 	flex-grow: 1;
 }
+
+.form-btn {
+	background-color: $light-gray;
+	border-radius: 4px;
+	padding: 4px;
+	margin: 0px;
+}
+
+.form-box {
+	margin-top: 4px;
+}
+
+

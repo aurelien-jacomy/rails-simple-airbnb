@@ -1,0 +1,14 @@
+<%= simple_form_for(flat) do |f| %>
+	<%= f.input :name %>
+	<%= f.input :address %>
+	<%= f.input :description %>
+	<%= f.input :number_of_guests, label: "Maximum number of guests" %>
+	<%= f.input :price_per_night, label: "Price per night" %>
+	<%= f.input :picture_url, label: "Upload a picture for your flat through its url" %>
+	<div class="d-flex justify-content-between">
+		<%= f.submit class: "btn btn-primary" %>
+		<% unless flat.id.nil? %>
+			<%= link_to "Delete", flat_path, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger"  %>
+		<% end %>
+	</div>
+<% end %>

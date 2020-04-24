@@ -1,5 +1,9 @@
 <div class="banner">
-	<% url = "https://source.unsplash.com/featured/?livingroom" %>
+	<% if @flat.picture_url.nil? %>
+		<% url = "https://source.unsplash.com/collection/8753757/1600x900" %>
+	<% else %>
+		<% url = @flat.picture_url %>
+	<% end %>
 	<img src=<%= "#{url}" %> alt="">
 </div>
 <div class="flat-container">
@@ -24,11 +28,42 @@
 	      	</div>
 		</div>			
 	</div>
-	<div class="book-card">
-		<%= link_to "Book now", "" %>
-		<div class="share">
-			
+	<div id="book-card">
+		<div class="content-card">
+			<h2>Book this place now!</h2>
+			<form action="">
+	 			<div class="input-group mb-2 mr-sm-2">
+	    			<div class="input-group-addon form-btn">From</div>
+	    			<input type="date" class="form-control" id="from">
+	  			</div>
+	  			<div class="input-group mb-2 mr-sm-2">
+	    			<div class="input-group-addon form-btn">To</div>
+	    			<input type="date" class="form-control" id="to">
+	  			</div>
+	  			<input type="submit" value="Book now" class="btn btn-success btn-block">
+  			</form>
+		</div>
+
+		<div class="content-card">
+			<h2>Details</h2>
+			<div class="d-flex align-center mr-2">
+				<div class="flat-icons">
+		      		<i class="fas fa-user-friends"></i>
+		      		<%= @flat.number_of_guests %>
+		      	</div>
+		      	<div class="flat-icons">
+		      		<i class="fas fa-euro-sign"></i>
+		      		<%= @flat.price_per_night %>
+		      	</div>
+		    </div>
+		</div>
+		<div class="content-card">
+			<ul class="list-group list-group-horizontal">
+			  <li class="list-group-item"><a href=""><i class="fab fa-instagram"></i></a></li>
+			  <li class="list-group-item"><a href=""><i class="fab fa-facebook"></i></a></li>
+			  <li class="list-group-item"><a href=""><i class="fab fa-tripadvisor"></i></a></li>
+			  <li class="list-group-item"><a href=""><i class="fab fa-twitter"></i></a></li>
+			</ul>		
 		</div>
 	</div>
 </div>
-

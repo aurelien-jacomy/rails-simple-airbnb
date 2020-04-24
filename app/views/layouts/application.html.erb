@@ -12,11 +12,28 @@
 
   <body>
     <div class="navbar-airbnb">
-      <h2>Simple Airbnb</h2>
-      <div>
-        <%= link_to new_flat_path do %>
-          <button class="btn btn-primary">New flat</button>
+      
+      <%= link_to flats_path do %>
+        <h2>Simple Airbnb</h2>
+      <% end %>
+      
+      <div class="d-flex align-center">
+        
+        <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
+          <div class="search-form-control form-group">
+            
+            <input class="form-control string required" type="text" name="search[query]" id="search_query" <%= "value=#{@search}" unless @search.nil? %> />
+            
+            <button name="button" type="submit" class="btn btn-flat">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </div>
         <% end %>
+
+        <div class="ml-2">
+          <%= link_to "New flat", new_flat_path, class: "btn btn-outline-primary" %>
+        </div>
+
       </div>
     </div>
     <%= yield %>

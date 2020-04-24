@@ -1,8 +1,13 @@
 class FlatsController < ApplicationController
-  before_action :set_flat, only: [:show]
+  before_action :set_flat, only: [:show, :edit, :update, :destroy]
 
   def index
-    @flats = Flat.all.reverse
+    if params[:search].nil?
+      @flats = Flat.all.reverse
+    else
+      @search = params[:search][:query]
+      @flats = Flat.where("name LIKE '%#{@search}%'").reverse
+    end
   end
 
   def new
@@ -18,7 +23,21 @@ class FlatsController < ApplicationController
     end
   end
 
-  def show
+  def show; end
+
+  def edit; end
+
+  def update
+    if @flat.update(flat_params)
+      redirect_to @flat
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @flat.destroy
+    redirect_to flats_path
   end
 
   private
@@ -29,7 +48,8 @@ class FlatsController < ApplicationController
       :address,
       :description,
       :number_of_guests,
-      :price_per_night
+      :price_per_night,
+      :picture_url
     )
   end
 
