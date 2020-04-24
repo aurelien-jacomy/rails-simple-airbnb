@@ -1,0 +1,33 @@
+<div class="airbnb-container">
+	<h1>All our flats (<%= @flats.count %>)</h1>
+	<div class="flats-grid">
+		<% @flats.each do |flat| %>
+			<div class="flat-card">
+		  		<img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+		  		<div class="flat-card-infos">
+			    	<div>
+				      <%= link_to flat do %>
+				      	<h2><%= flat.name %></h2>
+				      <% end %>
+				      <p><%= flat.address %></p>
+				      <div class="flat-details">
+				      	<div class="flat-icons">
+				      		<i class="fas fa-user-friends"></i>
+				      		<%= flat.number_of_guests %>
+				      	</div>
+				      	<div class="flat-icons">
+				      		<i class="fas fa-euro-sign"></i>
+				      		<%= flat.price_per_night %>
+				      	</div>
+				      </div>
+			    	</div>
+				</div>
+				<div class="flat-actions">
+				    	<%= link_to "More info", flat_path(flat)  %>
+				    	<%= link_to "Edit", edit_flat_path(flat) %>
+				    	<%= link_to "Remove", flat_path(flat), method: :delete, data: { confirm: "Are you sure?" } %>
+			  	</div>
+			</div>
+		<% end %>
+	</div>
+</div>

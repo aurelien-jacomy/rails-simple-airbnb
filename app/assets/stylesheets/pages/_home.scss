@@ -1,0 +1,23 @@
+// Specific CSS for your home-page
+.airbnb-container {
+	width: 1200px;
+	margin: 20px auto;
+}
+
+.flats-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 16px;
+}
+
+@media(max-width: 1200px) {
+  .flats-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media(max-width: 750px) {
+  .flats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

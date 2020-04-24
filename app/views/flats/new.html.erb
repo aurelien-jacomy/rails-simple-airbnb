@@ -1,0 +1,10 @@
+<div class="airbnb-container">
+	<%= simple_form_for @flat do |f| %>
+		<%= f.input :name %>
+		<%= f.input :address %>
+		<%= f.input :description %>
+		<%= f.input :number_of_guests, label: "Maximum number of guests" %>
+		<%= f.input :price_per_night, label: "Price per night" %>
+		<%= f.submit class: "btn btn-primary" %>
+	<% end %>
+</div>

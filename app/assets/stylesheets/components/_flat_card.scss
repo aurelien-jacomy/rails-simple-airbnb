@@ -1,0 +1,51 @@
+.flat-card {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.flat-card > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.flat-card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.flat-card p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.flat-card .flat-card-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.flat-card .flat-details {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flat-card .flat-actions {
+  border-top: 0.5px solid rgb(240, 240, 240);
+  display: flex;
+  justify-content: flex-start;
+  padding: 8px 16px;
+  a {
+    padding-right: 16px;
+  }
+}
+
+.flat-icons {
+  padding: 8px 12px;
+}
